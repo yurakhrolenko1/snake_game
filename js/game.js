@@ -1,5 +1,7 @@
 let lastRanderTime = 0
-const SNAKE_SPEED = 2  // updates of gameloop per second
+import {
+    SNAKE_SPEED
+} from "./snake.js"
 
 
 function main(carentTimestamp) {
