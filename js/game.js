@@ -1,7 +1,12 @@
-let lastRanderTime = 0
 import {
-    SNAKE_SPEED
+    SNAKE_SPEED,
+    updateSnake,
+    drawSnake
 } from "./snake.js"
+
+let lastRanderTime = 0
+const gameBoard = document.getElementById("game-grid")
+
 
 
 function main(carentTimestamp) {
@@ -10,7 +15,6 @@ function main(carentTimestamp) {
     if (secondsSinceLastRender < 1 / SNAKE_SPEED) return
 
     lastRanderTime = carentTimestamp
-    console.log(secondsSinceLastRender)
 
     update()
     draw()
@@ -20,11 +24,11 @@ function main(carentTimestamp) {
 window.requestAnimationFrame(main)
 
 function update() {
-
+    updateSnake()
 }
 
 function draw() {
-
+    drawSnake(gameBoard)
 }
 
 
