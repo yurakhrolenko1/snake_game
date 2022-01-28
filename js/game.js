@@ -1,6 +1,11 @@
+import {
+    drawFood,
+    updateFood
+} from "./food.js"
+
 let lastRanderTime = 0
 const SNAKE_SPEED = 2  // updates of gameloop per second
-
+const gameBoard = document.getElementById("game-grid")
 
 function main(carentTimestamp) {
     window.requestAnimationFrame(main)
@@ -8,7 +13,6 @@ function main(carentTimestamp) {
     if (secondsSinceLastRender < 1 / SNAKE_SPEED) return
 
     lastRanderTime = carentTimestamp
-    console.log(secondsSinceLastRender)
 
     update()
     draw()
@@ -18,11 +22,12 @@ function main(carentTimestamp) {
 window.requestAnimationFrame(main)
 
 function update() {
-
+    updateFood()
 }
 
 function draw() {
-
+    gameBoard.innerHTML = ""
+    drawFood(gameBoard)
 }
 
 
