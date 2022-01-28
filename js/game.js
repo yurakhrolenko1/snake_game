@@ -24,6 +24,7 @@ function main(carentTimestamp) {
 window.requestAnimationFrame(main)
 
 function update() {
+    gameBoard.innerHTML = ""
     updateSnake()
 }
 

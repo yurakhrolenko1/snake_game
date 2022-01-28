@@ -1,4 +1,4 @@
-// import { getDirection } from "./input.js"
+import { getDirection } from "./input.js"
 
 export const SNAKE_SPEED = 1  // updates of gameloop per second
 const snakeBody = [
@@ -7,7 +7,7 @@ const snakeBody = [
 
 
 export function updateSnake() {
-    const inputDirection = {x: 0, y: 1}  // getDirection()
+    const inputDirection = getDirection()
     for (let i = snakeBody.length -2 ; i >= 0; i--) {
         snakeBody[i + 1] = { ...snakeBody[i] }
     }
