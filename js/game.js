@@ -5,6 +5,7 @@ import {
 import {
     SNAKE_SPEED,
     getShakeHead,
+    snakeIntersection,
     updateSnake,
     drawSnake
 } from "./snake.js"
@@ -52,6 +53,6 @@ function draw() {
 
 function checkDeath() {
     let snakeHead = getShakeHead()
-    gameOver = outsideGrid(snakeHead)
+    gameOver = outsideGrid(snakeHead) || snakeIntersection()
 }
 
