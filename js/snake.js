@@ -1,6 +1,6 @@
 import { getDirection } from "./input.js"
 
-export const SNAKE_SPEED = 1  // updates of gameloop per second
+export const SNAKE_SPEED = 3  // updates of gameloop per second
 const snakeBody = [
     {"x": 11,"y": 11}
 ]
@@ -25,4 +25,10 @@ export function drawSnake(gameBoard) {
     })
 }
 
+
+export function onSnake(position) {
+    return snakeBody.some( (segment) => {
+        return segment.x === position.x && segment.y === position.y
+    })
+}
 

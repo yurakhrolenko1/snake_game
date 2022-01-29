@@ -1,8 +1,18 @@
+import {
+    onSnake
+} from './snake.js'
 
-let foodCoords = {x: 0, y: 0}
+
+let foodCoords = {x: 5, y: 5}
 
 
 export function updateFood() {
+    // if snake on food move food to new coords
+    if (onSnake(foodCoords)) {
+        foodCoords = {x: 15, y: 15}
+        console.log("on top")
+    }
+    // then add new segment to snake
 
 }
 
