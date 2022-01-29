@@ -2,27 +2,37 @@ import {
     onSnake,
     expendSnake
 } from './snake.js'
+import {
+    randomPosition
+} from './grid.js'
 
 const EXPENTION_RATE = 1
-let foodCoords = {x: 5, y: 5}
+let foodCoords = {x: 8, y: 8}
 
 
 export function updateFood() {
     // if snake on food move food to new coords
     if (onSnake(foodCoords)) {
         expendSnake(EXPENTION_RATE)
-        foodCoords = {x: 15, y: 15}
-        console.log("on top OF FOOD")
+        foodCoords = getRandomCoords()
     }
-    // then add new segment to snake
-
 }
 
 export function drawFood(gameBoard) {
     let foodElement = document.createElement("div")
     foodElement.classList.add("food")
-    foodElement.style.gridRowStart = foodCoords.x
-    foodElement.style.gridColumnStart = foodCoords.y
+    foodElement.style.gridRowStart = foodCoords.y
+    foodElement.style.gridColumnStart = foodCoords.x
     gameBoard.appendChild(foodElement)
 }
 
+
+function getRandomCoords() {
+    let newPosition
+    while (newPosition == null || onSnake(newPosition)) {
+        newPosition = randomPosition()
+    }
+    console.log(newPosition)
+    return newPosition
+
+}
