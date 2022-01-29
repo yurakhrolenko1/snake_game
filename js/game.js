@@ -19,11 +19,11 @@ const gameBoard = document.getElementById("game-grid")
 
 
 function main(carentTimestamp) {
-    checkDeath()
     if (gameOver) {
-        console.log("you lose")
-        gameOver = false
-        return alert("you lose")
+        if (confirm("You lost. Press ok to restart.")){
+            window.location = '/snake_game/index.html'
+        }
+        return
     }
 
     window.requestAnimationFrame(main)
@@ -42,6 +42,7 @@ window.requestAnimationFrame(main)
 function update() {
     updateFood()
     updateSnake()
+    checkDeath()
 }
 
 function draw() {

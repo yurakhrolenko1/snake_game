@@ -7,7 +7,7 @@ import {
 } from './grid.js'
 
 const EXPENTION_RATE = 1
-let foodCoords = {x: 8, y: 8}
+let foodCoords = getRandomCoords()
 
 
 export function updateFood() {
